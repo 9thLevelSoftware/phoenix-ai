@@ -1,3 +1,11 @@
+---
+title: "Membership Tiers & Ecosystem Features"
+source: "Vitruvian Official Knowledge Base"
+version: "1.0"
+last_updated: "2026-05-27"
+disclaimer: "This document is for general coaching and educational purposes only. It is not medical advice, diagnosis, or treatment."
+---
+
 # Membership Tiers & Ecosystem Features
 
 Project Phoenix operates a multi-tiered subscription model managed through Paddle, offering differing levels of feature access, sync capabilities, and analytics.
@@ -19,3 +27,6 @@ Project Phoenix operates a multi-tiered subscription model managed through Paddl
 ### 4. INFERNO Tier (Premium Paid)
 - **Access**: All FLAME features plus comprehensive training cycle builder, routine creator, developer API access, and third-party integrations with dedicated strength logging apps (Hevy and Liftosaur).
 - **AI Insights**: Generates automated training recommendations, cognitive coaching, and performance forecasting.
+
+---
+*Disclaimer: This document is for general coaching and educational purposes only. It is not medical advice, diagnosis, or treatment.*

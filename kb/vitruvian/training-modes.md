@@ -1,3 +1,11 @@
+---
+title: "Vitruvian Training Modes"
+source: "Vitruvian Official Knowledge Base"
+version: "1.0"
+last_updated: "2026-05-27"
+disclaimer: "This document is for general coaching and educational purposes only. It is not medical advice, diagnosis, or treatment."
+---
+
 # Vitruvian Training Modes
 
 The Vitruvian Trainer utilizes dynamic, software-controlled motor resistance to simulate a variety of training modalities. The following modes are supported by the Vitruvian hardware protocol and synchronized with Project Phoenix mobile and portal databases.
@@ -31,3 +39,6 @@ The Vitruvian Trainer utilizes dynamic, software-controlled motor resistance to 
 - **Description**: Isokinetic-like velocity-locked mode.
 - **Behavior**: Locks the speed of movement. No matter how much force the user exerts, they cannot exceed the locked velocity. The machine matches the user's force output 1:1.
 - **Best For**: Maximum strength assessments, rehabilitation, and safe peak torque tracking.
+
+---
+*Disclaimer: This document is for general coaching and educational purposes only. It is not medical advice, diagnosis, or treatment.*

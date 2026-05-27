@@ -11,6 +11,7 @@
     "types:worker": "wrangler types && node scripts/normalize-generated-types.mjs",
     "typecheck": "tsc --noEmit",
     "test:contracts": "node --test tests/phase1-contract.test.mjs",
+    "test:safety": "node --test tests/phase2-retrieval-safety.test.mjs",
     "smoke:worker": "node scripts/verify-worker-smoke.mjs"
   },
   "devDependencies": {

@@ -1,3 +1,11 @@
+---
+title: "Nutrition Basics for Strength & Hypertrophy"
+source: "Vitruvian Official Knowledge Base"
+version: "1.0"
+last_updated: "2026-05-27"
+disclaimer: "This document is for general coaching and educational purposes only. It is not medical advice, diagnosis, or treatment."
+---
+
 # Nutrition Basics for Strength & Hypertrophy
 
 Optimal body composition and muscle hypertrophy require an aligned nutritional strategy to fuel performance and support muscle protein synthesis.
@@ -19,3 +27,6 @@ Optimal body composition and muscle hypertrophy require an aligned nutritional s
 ### Fats (The Regulator)
 - **Target**: **0.5 to 1.5 g per kilogram of bodyweight** per day (approx. 20-35% of total caloric intake).
 - **Role**: Essential for hormone regulation (including testosterone production), cell membrane integrity, and absorption of fat-soluble vitamins (A, D, E, K).
+
+---
+*Disclaimer: This document is for general coaching and educational purposes only. It is not medical advice, diagnosis, or treatment.*

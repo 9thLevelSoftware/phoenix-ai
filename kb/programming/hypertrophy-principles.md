@@ -1,3 +1,11 @@
+---
+title: "Scientific Hypertrophy Principles"
+source: "Vitruvian Official Knowledge Base"
+version: "1.0"
+last_updated: "2026-05-27"
+disclaimer: "This document is for general coaching and educational purposes only. It is not medical advice, diagnosis, or treatment."
+---
+
 # Scientific Hypertrophy Principles
 
 To maximize skeletal muscle hypertrophy, Project Phoenix recommends structuring routines based on well-established exercise science principles.
@@ -21,3 +29,6 @@ To maximize skeletal muscle hypertrophy, Project Phoenix recommends structuring 
 ### 4. Frequency & Rest
 - **Concept**: Elevated muscle protein synthesis (MPS) remains elevated for 24-48 hours post-workout.
 - **Application**: Training each muscle group **2 times per week** is generally superior to training them once per week (split routines), as it maximizes the frequency of elevated MPS. Allow at least 48 hours of recovery between high-intensity sets for the same muscle group.
+
+---
+*Disclaimer: This document is for general coaching and educational purposes only. It is not medical advice, diagnosis, or treatment.*

@@ -3,7 +3,7 @@
 ## Phases
 
 - [x] Phase 1: API Contract and Environment Hardening (3 plans)
-- [ ] Phase 2: Source-Grounded Retrieval and Safety Behavior (3 plans)
+- [x] Phase 2: Source-Grounded Retrieval and Safety Behavior (3 plans)
 - [ ] Phase 3: Eval Suite and Quality Gates (2 plans)
 - [ ] Phase 4: Deployment Readiness and Production Controls (3 plans)
 - [ ] Phase 5: Model Escalation Decision (2 plans)
@@ -73,7 +73,7 @@
 | Phase | Plans | Completed | Status |
 |-------|-------|-----------|--------|
 | Phase 1: API Contract and Environment Hardening | 3 | 3 | Complete |
-| Phase 2: Source-Grounded Retrieval and Safety Behavior | 3 | 0 | Not started |
+| Phase 2: Source-Grounded Retrieval and Safety Behavior | 3 | 3 | Complete |
 | Phase 3: Eval Suite and Quality Gates | 2 | 0 | Not started |
 | Phase 4: Deployment Readiness and Production Controls | 3 | 0 | Not started |
 | Phase 5: Model Escalation Decision | 2 | 0 | Not started |

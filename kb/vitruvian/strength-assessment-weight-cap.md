@@ -1,3 +1,11 @@
+---
+title: "Strength Assessments & Weight Limits"
+source: "Vitruvian Official Knowledge Base"
+version: "1.0"
+last_updated: "2026-05-27"
+disclaimer: "This document is for general coaching and educational purposes only. It is not medical advice, diagnosis, or treatment."
+---
+
 # Strength Assessments & Weight Limits
 
 To ensure safe operation and optimal training efficacy, the Vitruvian hardware and Project Phoenix software enforce strict weight limits and strength assessment guidelines.
@@ -20,3 +28,6 @@ Before users can engage in high-intensity training modes (like `TUT_BEAST` or `E
 1. **Protocol**: The user performs 3 sub-maximal reps followed by 1-2 maximum-effort reps under an accommodating resistance curve (`ECHO` or `PUMP` mode).
 2. **Safety Ceiling**: The peak concentric and eccentric force measured during the assessment establishes the user's initial **Strength Ceiling**.
 3. **Weight Caps**: High-intensity workouts are capped at **90% of the assessed Strength Ceiling** for safety. Users cannot configure weights higher than their ceiling without performing a new assessment.
+
+---
+*Disclaimer: This document is for general coaching and educational purposes only. It is not medical advice, diagnosis, or treatment.*
