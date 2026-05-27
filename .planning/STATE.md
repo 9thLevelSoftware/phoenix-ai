@@ -2,15 +2,16 @@
 
 ## Current Position
 - **Phase**: 1 of 5 (executing)
-- **Status**: Phase 1 executing - Plan 01-01 complete
-- **Last Activity**: Plan 01-01 execution (2026-05-27)
+- **Status**: Phase 1 executing - Plan 01-02 complete
+- **Last Activity**: Plan 01-02 execution (2026-05-27)
 
 ## Phase 1 Results
 - Plan 01-01 (Wave 1): Normalize environment and local deployment contract - Complete. Canonical config/docs/secret contract established.
+- Plan 01-02 (Wave 2): Harden Worker request and debug contract - Complete. Request validation, trusted debug gating, and sanitized provider errors implemented.
 
 ## Progress
 ```
-[#...................] 7% - 1/13 plans complete
+[###.................] 15% - 2/13 plans complete
 ```
 
 ## Recent Decisions
@@ -24,7 +25,7 @@
 - Escalation route: Azure OpenAI and fine-tuning are eval-gated later work.
 
 ## Next Action
-Continue `/legion:build` for Phase 1 Wave 2: Harden Worker request and debug contract
+Continue `/legion:build` for Phase 1 Wave 3: Add contract verification and smoke checks
 
 ## GitHub
 - **Phase 1 Issue**: #2 - https://github.com/9thLevelSoftware/phoenix-ai/issues/2
