@@ -60,10 +60,42 @@ The Worker expects the AI Search instance binding in `wrangler.jsonc`:
 
 ```powershell
 npm run typecheck
+npm run test:contracts
 ```
 
-Phase 1 adds additional contract and smoke checks. Until those scripts exist,
-the typecheck command is the baseline local verification.
+`npm run test:contracts` runs static Phase 1 contract checks with Node's built-in
+test runner. It does not call Cloudflare services.
+
+## Smoke Testing
+
+Start a local Worker first:
+
+```powershell
+npm run dev
+```
+
+Then run the smoke checks from another terminal:
+
+```powershell
+npm run smoke:worker
+```
+
+The smoke script targets `http://127.0.0.1:8787` by default. Override with
+`PHOENIX_BASE_URL` when testing a deployed or remote `wrangler dev` target:
+
+```powershell
+$env:PHOENIX_BASE_URL="https://example.workers.dev"
+npm run smoke:worker
+```
+
+By default, smoke checks avoid live model calls. To run the live `/api/coach`
+success path, configure the required Cloudflare secrets, ensure the `KB` AI
+Search binding is reachable, then opt in explicitly:
+
+```powershell
+$env:PHOENIX_RUN_LIVE_COACH="1"
+npm run smoke:worker
+```
 
 ## Debug Access
 
