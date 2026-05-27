@@ -5,15 +5,16 @@
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
-    "dev": "wrangler dev",
+    "dev": "wrangler dev --local",
+    "dev:remote": "wrangler dev",
     "deploy": "wrangler deploy",
+    "types:worker": "wrangler types && node scripts/normalize-generated-types.mjs",
     "typecheck": "tsc --noEmit",
     "test:contracts": "node --test tests/phase1-contract.test.mjs",
     "smoke:worker": "node scripts/verify-worker-smoke.mjs"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20260304.0",
     "typescript": "^5.3.3",
-    "wrangler": "^3.57.1"
+    "wrangler": "^4.95.0"
   }
 }

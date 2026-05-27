@@ -50,18 +50,35 @@ values. Do not commit `.dev.vars`.
 npm run dev
 ```
 
+`npm run dev` starts `wrangler dev --local`, which is enough for Phase 1 health,
+validation, and debug-gating smoke checks without requiring Cloudflare login.
+
 The Worker expects the AI Search instance binding in `wrangler.jsonc`:
 
 - binding: `KB`
 - instance: `phoenix-vitruvian-kb`
 - remote local development: enabled with `remote: true`
 
+For live AI Search/model checks, use remote dev or a deployed Worker target:
+
+```powershell
+npm run dev:remote
+```
+
+Remote dev requires `npx wrangler login` and configured Cloudflare account access.
+
 ## Verification
 
 ```powershell
+npm run types:worker
 npm run typecheck
 npm run test:contracts
 ```
+
+`npm run types:worker` regenerates `worker-configuration.d.ts` from
+`wrangler.jsonc`. The project uses Wrangler 4.x so the `ai_search` binding is
+recognized as `KB: AiSearchInstance` during local development and type
+generation.
 
 `npm run test:contracts` runs static Phase 1 contract checks with Node's built-in
 test runner. It does not call Cloudflare services.
@@ -89,8 +106,9 @@ npm run smoke:worker
 ```
 
 By default, smoke checks avoid live model calls. To run the live `/api/coach`
-success path, configure the required Cloudflare secrets, ensure the `KB` AI
-Search binding is reachable, then opt in explicitly:
+success path, configure the required Cloudflare secrets, use `npm run dev:remote`
+or a deployed Worker URL so the `KB` AI Search binding is reachable, then opt in
+explicitly:
 
 ```powershell
 $env:PHOENIX_RUN_LIVE_COACH="1"

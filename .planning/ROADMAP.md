@@ -2,7 +2,7 @@
 
 ## Phases
 
-- [ ] Phase 1: API Contract and Environment Hardening (3 plans)
+- [x] Phase 1: API Contract and Environment Hardening (3 plans)
 - [ ] Phase 2: Source-Grounded Retrieval and Safety Behavior (3 plans)
 - [ ] Phase 3: Eval Suite and Quality Gates (2 plans)
 - [ ] Phase 4: Deployment Readiness and Production Controls (3 plans)
@@ -15,11 +15,11 @@
 **Requirements**: R1, R2, R3, R4, R9
 **Recommended Agents**: engineering-backend-architect, engineering-security-engineer, testing-api-tester
 **Success Criteria**:
-- [ ] `src/index.ts`, `wrangler.jsonc`, `.dev.vars` expectations, and deployment notes use one canonical Cloudflare token secret name.
-- [ ] `MODEL_PROVIDER` accepts one documented Workers AI value and one documented Azure value, or intentionally supports aliases with tests.
-- [ ] `/api/health` and `/api/coach` retain their route contracts.
-- [ ] Request validation rejects malformed JSON, missing messages, overlong messages, excessive history, and unauthorized debug access.
-- [ ] TypeScript typecheck passes.
+- [x] `src/index.ts`, `wrangler.jsonc`, `.dev.vars` expectations, and deployment notes use one canonical Cloudflare token secret name.
+- [x] `MODEL_PROVIDER` accepts one documented Workers AI value and one documented Azure value, or intentionally supports aliases with tests.
+- [x] `/api/health` and `/api/coach` retain their route contracts.
+- [x] Request validation rejects malformed JSON, missing messages, overlong messages, excessive history, and unauthorized debug access.
+- [x] TypeScript typecheck passes.
 **Plans**: 3
 
 ### Phase 2: Source-Grounded Retrieval and Safety Behavior

@@ -46,6 +46,21 @@ test("wrangler config keeps secrets out of vars and preserves AI Search binding"
   assert.equal(configSource.includes("CF_API_TOKEN"), false);
 });
 
+test("Wrangler toolchain supports the current AI Search binding", () => {
+  const packageJson = readJson("package.json");
+  const wranglerRange = packageJson.devDependencies?.wrangler;
+  const major = Number(String(wranglerRange).match(/\d+/)?.[0]);
+
+  assert.ok(Number.isFinite(major), "package.json must declare a Wrangler dev dependency");
+  assert.ok(major >= 4, "AI Search bindings require Wrangler 4.x local/type support");
+  assert.equal(packageJson.scripts?.dev, "wrangler dev --local");
+  assert.equal(packageJson.scripts?.["dev:remote"], "wrangler dev");
+  assert.equal(
+    packageJson.scripts?.["types:worker"],
+    "wrangler types && node scripts/normalize-generated-types.mjs",
+  );
+});
+
 test("runtime source declares canonical provider and secret contract", () => {
   const source = read("src/index.ts");
 
@@ -115,7 +130,9 @@ test("README documents the canonical local and deployment commands", () => {
       "wrangler secret put PHOENIX_DEBUG_TOKEN",
       "wrangler secret put AZURE_OPENAI_API_KEY",
       "MODEL_PROVIDER",
+      "npm run types:worker",
       "npm run typecheck",
+      "npm run dev:remote",
       "npm run test:contracts",
       "npm run smoke:worker",
       "PHOENIX_RUN_LIVE_COACH",
@@ -124,7 +141,7 @@ test("README documents the canonical local and deployment commands", () => {
   );
 });
 
-test("generated Worker env snapshot includes Phase 1 bindings and secrets", () => {
+test("generated Worker env snapshot includes the Phase 1 AI Search binding", () => {
   const generated = read("worker-configuration.d.ts");
 
   assertContains(
@@ -132,11 +149,8 @@ test("generated Worker env snapshot includes Phase 1 bindings and secrets", () =
     [
       "interface Env",
       "KB",
-      "search(options",
-      "CF_API_TOKEN",
+      "AiSearchInstance",
       "PHOENIX_DEBUG_ENABLED",
-      "PHOENIX_DEBUG_TOKEN",
-      "AZURE_OPENAI_API_KEY",
     ],
     "worker-configuration.d.ts",
   );

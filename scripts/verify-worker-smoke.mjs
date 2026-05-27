@@ -23,7 +23,8 @@ The default smoke run checks:
   - Missing message to POST /api/coach returns 400.
   - Unauthorized debug:true to POST /api/coach returns 403.
 
-Live coach smoke requires configured Cloudflare secrets and AI Search access.`);
+Live coach smoke requires configured Cloudflare secrets and a remote dev or deployed
+Worker target with AI Search access.`);
 }
 
 function preview(value) {
