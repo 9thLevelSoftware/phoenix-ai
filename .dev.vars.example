@@ -1,0 +1,11 @@
+# Copy this file to .dev.vars for local Wrangler development.
+# Keep real values out of git. The real .dev.vars file is ignored.
+
+# Required for MODEL_PROVIDER=workersai.
+CF_API_TOKEN=
+
+# Required only when trusted debug responses are enabled.
+PHOENIX_DEBUG_TOKEN=
+
+# Required only for MODEL_PROVIDER=azureopenai.
+AZURE_OPENAI_API_KEY=

@@ -1,0 +1,224 @@
+{
+  "metadata": {
+    "map_schema_version": "2.0",
+    "generated_at": "2026-05-27T21:52:00Z",
+    "analyzed_commit": "566d935560a627a12014dbb2eb29874dfd5611c8",
+    "source_file_count": 18,
+    "source_fingerprint": "1558ec894adc0e56ec7e2f352ffac1e98065db09a495822c3be13f25b874d97d",
+    "source_fingerprint_kind": "sha256-path-size-mtime",
+    "scope": "project-root"
+  },
+  "entry_points": [
+    {
+      "name": "Cloudflare Worker",
+      "path": "src/index.ts",
+      "kind": "worker-entry",
+      "summary": "Default Worker export with fetch handler for health, coach, preflight, and 404 routes.",
+      "related_chunks": ["map:src-index-router-health:001"]
+    },
+    {
+      "name": "Wrangler config",
+      "path": "wrangler.jsonc",
+      "kind": "deployment-config",
+      "summary": "Declares Worker main, compatibility date, AI Search binding, and environment vars.",
+      "related_chunks": ["map:wrangler-config:001"]
+    },
+    {
+      "name": "Phoenix QLoRA trainer",
+      "path": "train_phoenix.py",
+      "kind": "training-script",
+      "summary": "CLI-driven Unsloth QLoRA supervised fine-tuning script.",
+      "related_chunks": ["map:train-phoenix:001"]
+    }
+  ],
+  "routes": [
+    {
+      "name": "OPTIONS *",
+      "path": "src/index.ts",
+      "kind": "cors-preflight",
+      "method": "OPTIONS",
+      "route": "*",
+      "summary": "Returns 204 with CORS headers.",
+      "related_chunks": ["map:src-index-router-health:001"]
+    },
+    {
+      "name": "GET /api/health",
+      "path": "src/index.ts",
+      "kind": "http-route",
+      "method": "GET",
+      "route": "/api/health",
+      "summary": "Returns health JSON for phoenix-ai-api.",
+      "related_chunks": ["map:src-index-router-health:001"]
+    },
+    {
+      "name": "POST /api/coach",
+      "path": "src/index.ts",
+      "kind": "http-route",
+      "method": "POST",
+      "route": "/api/coach",
+      "summary": "Main coaching API route that retrieves KB context and dispatches to an LLM provider.",
+      "related_chunks": ["map:src-index-coach-retrieval:001", "map:src-index-provider-dispatch:001"]
+    }
+  ],
+  "apis": [
+    {
+      "name": "AI Search KB binding",
+      "path": "src/index.ts",
+      "kind": "cloudflare-binding",
+      "summary": "Uses env.KB.search with hybrid/RRF retrieval.",
+      "related_chunks": ["map:src-index-coach-retrieval:001"]
+    },
+    {
+      "name": "Workers AI via Cloudflare REST/Gateway",
+      "path": "src/index.ts",
+      "kind": "external-api",
+      "summary": "Calls Cloudflare account AI chat completions endpoint with cf-aig-gateway-id.",
+      "related_chunks": ["map:src-index-provider-dispatch:001"]
+    },
+    {
+      "name": "Azure OpenAI via Cloudflare AI Gateway",
+      "path": "src/index.ts",
+      "kind": "external-api",
+      "summary": "Calls Cloudflare AI Gateway Azure OpenAI provider-native route with Azure API key.",
+      "related_chunks": ["map:src-index-provider-dispatch:001"]
+    }
+  ],
+  "modules": [
+    {
+      "name": "Env",
+      "path": "src/index.ts",
+      "kind": "interface",
+      "summary": "Worker environment binding and variable contract.",
+      "related_chunks": ["map:src-index-types-cors:001"]
+    },
+    {
+      "name": "handleCoach",
+      "path": "src/index.ts",
+      "kind": "function",
+      "summary": "Main API implementation for coach request parsing, retrieval, prompt construction, provider dispatch, and response formatting.",
+      "related_chunks": ["map:src-index-coach-retrieval:001", "map:src-index-prompt-profile:001", "map:src-index-provider-dispatch:001", "map:src-index-llm-response-debug:001"]
+    },
+    {
+      "name": "corsHeaders",
+      "path": "src/index.ts",
+      "kind": "function",
+      "summary": "Builds CORS response headers from ALLOWED_ORIGIN.",
+      "related_chunks": ["map:src-index-types-cors:001"]
+    },
+    {
+      "name": "apply_chat_template",
+      "path": "train_phoenix.py",
+      "kind": "function",
+      "summary": "Converts ChatML messages into model-specific text using the tokenizer chat template.",
+      "related_chunks": ["map:train-phoenix:001"]
+    }
+  ],
+  "tests": [
+    {
+      "name": "TypeScript typecheck",
+      "path": "package.json",
+      "kind": "script",
+      "summary": "npm run typecheck invokes tsc --noEmit; passed during map generation.",
+      "related_chunks": ["map:package-config:001", "map:tsconfig:001"]
+    },
+    {
+      "name": "Fine-tuning test dataset",
+      "path": "dataset/final/test.jsonl",
+      "kind": "data",
+      "summary": "218 ChatML examples used as model test data, not an automated Worker test harness.",
+      "related_chunks": ["map:datasets-final:001"]
+    }
+  ],
+  "config": [
+    {
+      "name": "wrangler.jsonc",
+      "path": "wrangler.jsonc",
+      "kind": "cloudflare-config",
+      "summary": "Cloudflare Worker, AI Search binding, and environment vars.",
+      "related_chunks": ["map:wrangler-config:001"]
+    },
+    {
+      "name": "tsconfig.json",
+      "path": "tsconfig.json",
+      "kind": "typescript-config",
+      "summary": "Strict ES2022 TypeScript config for Workers.",
+      "related_chunks": ["map:tsconfig:001"]
+    },
+    {
+      "name": ".gitignore",
+      "path": ".gitignore",
+      "kind": "ignore-config",
+      "summary": "Excludes node_modules, build outputs, and local secret files.",
+      "related_chunks": []
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "@cloudflare/workers-types",
+      "path": "package.json",
+      "kind": "devDependency",
+      "summary": "Cloudflare Worker TypeScript definitions.",
+      "related_chunks": ["map:package-config:001"]
+    },
+    {
+      "name": "typescript",
+      "path": "package.json",
+      "kind": "devDependency",
+      "summary": "TypeScript compiler; current 5.9.3, latest 6.0.3 from npm outdated.",
+      "related_chunks": ["map:package-config:001"]
+    },
+    {
+      "name": "wrangler",
+      "path": "package.json",
+      "kind": "devDependency",
+      "summary": "Cloudflare Workers CLI; current 3.114.17, latest 4.95.0, with audit findings through transitive dev dependencies.",
+      "related_chunks": ["map:package-config:001"]
+    }
+  ],
+  "ownership": [
+    {
+      "name": "Worker runtime",
+      "path": "src/index.ts",
+      "kind": "backend-api",
+      "summary": "Runtime API, retrieval, prompt, and provider routing.",
+      "related_chunks": ["map:src-index-router-health:001", "map:src-index-coach-retrieval:001"]
+    },
+    {
+      "name": "Knowledge base",
+      "path": "kb",
+      "kind": "domain-content",
+      "summary": "Source-grounding content for Vitruvian, safety, hypertrophy, and nutrition.",
+      "related_chunks": ["map:kb-vitruvian-training-modes:001", "map:kb-safety:001"]
+    },
+    {
+      "name": "Fine-tuning assets",
+      "path": "dataset/final",
+      "kind": "ai-ml-data",
+      "summary": "ChatML datasets for supervised fine-tuning and evaluation.",
+      "related_chunks": ["map:datasets-final:001"]
+    }
+  ],
+  "risk_areas": [
+    {
+      "name": "Debug prompt leakage",
+      "path": "src/index.ts",
+      "kind": "security",
+      "summary": "Request-controlled debug output can expose systemPrompt, chunks, and retrieval errors.",
+      "related_chunks": ["map:src-index-llm-response-debug:001"]
+    },
+    {
+      "name": "Permissive CORS",
+      "path": "wrangler.jsonc",
+      "kind": "security",
+      "summary": "ALLOWED_ORIGIN defaults to *.",
+      "related_chunks": ["map:wrangler-config:001"]
+    },
+    {
+      "name": "Outdated vulnerable dev toolchain",
+      "path": "package.json",
+      "kind": "dependency-risk",
+      "summary": "npm audit reports 5 vulnerabilities through wrangler/miniflare transitive deps; fix is wrangler 4.95.0 semver-major.",
+      "related_chunks": ["map:package-config:001"]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+generated: "2026-05-27"
+source: "CODEBASE.md"
+version: "1.0"
+
+mappings:
+  routes:
+    paths:
+      - "src"
+    priority: 5
+    pattern: "src/index.ts"
+    description: "Cloudflare Worker fetch routes and API handlers"
+  services:
+    paths:
+      - "src"
+    priority: 5
+    pattern: "src/**/*.ts"
+    description: "Worker runtime and provider integration code"
+  docs:
+    paths:
+      - "kb"
+      - ".planning"
+    priority: 5
+    pattern: "**/*.md"
+    description: "Knowledge base and Legion planning documentation"
+  data:
+    paths:
+      - "dataset/final"
+    priority: 10
+    pattern: "dataset/final/*.jsonl"
+    description: "ChatML training, validation, and test datasets"
+  scripts:
+    paths:
+      - "."
+    priority: 5
+    pattern: "train_phoenix.py"
+    description: "Local model fine-tuning script"
+  config:
+    paths:
+      - "."
+    priority: 10
+    pattern: "wrangler.jsonc|tsconfig.json|package.json|worker-configuration.d.ts"
+    description: "Worker, TypeScript, npm, and generated env configuration"
+  tests:
+    paths: []
+    priority: 1
+    pattern: "**/*.test.{ts,js}|tests/**|__tests__/**"
+    description: "No automated Worker test directory detected"
+
+packages: {}
+
+rules:
+  strictness: warn
+  exceptions:
+    - "README.md"
+    - ".gitignore"
+    - "package-lock.json"
+
+autoUpdate:
+  enabled: true
+  mode: "prompt"
+  threshold:
+    newDirectoryFiles: 3
+    newCategoryFiles: 10
+    categoryChangePercent: 20
+  backup:
+    enabled: true
+    keepCount: 5
