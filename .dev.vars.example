@@ -7,5 +7,7 @@ CF_API_TOKEN=
 # Required only when trusted debug responses are enabled.
 PHOENIX_DEBUG_TOKEN=
 
-# Required only for MODEL_PROVIDER=azureopenai.
-AZURE_OPENAI_API_KEY=
+# Required for MODEL_PROVIDER=local (e.g., llama.cpp server)
+LOCAL_LLM_URL=http://localhost:8080/v1/chat/completions
+LOCAL_LLM_MODEL=qwen2.5-7b-coaching-v4-Q4_K_M
+LOCAL_LLM_API_KEY=

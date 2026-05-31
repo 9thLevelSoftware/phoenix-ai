@@ -19,6 +19,9 @@
     "AZURE_DEPLOYMENT_NAME": "",
     "AZURE_API_VERSION": "2023-05-15",
     "ALLOWED_ORIGIN": "*",
-    "PHOENIX_DEBUG_ENABLED": "false"
+    "PHOENIX_DEBUG_ENABLED": "false",
+    "LOCAL_LLM_URL": "",
+    "LOCAL_LLM_MODEL": "qwen2.5-7b-coaching-v4-Q4_K_M",
+    "LOCAL_LLM_API_KEY": ""
   }
 }

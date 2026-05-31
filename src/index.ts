@@ -44,6 +44,9 @@ export interface Env {
   ALLOWED_ORIGIN?: string;
   PHOENIX_DEBUG_ENABLED?: string;
   PHOENIX_DEBUG_TOKEN?: string;
+  LOCAL_LLM_URL?: string;
+  LOCAL_LLM_MODEL?: string;
+  LOCAL_LLM_API_KEY?: string;
   CF_API_TOKEN?: string;
 }
 
@@ -455,10 +458,29 @@ async function handleCoach(request: Request, env: Env): Promise<Response> {
     llmBody = {
       messages: llmMessages,
     };
+  } else if (provider === "local") {
+    if (!env.LOCAL_LLM_URL) {
+      return jsonResponse(env, 500, {
+        error: "Configuration Error",
+        message: "Missing 'LOCAL_LLM_URL' environment variable required for MODEL_PROVIDER=local",
+      });
+    }
+
+    llmUrl = env.LOCAL_LLM_URL;
+    modelName = env.LOCAL_LLM_MODEL || "local-model";
+    if (env.LOCAL_LLM_API_KEY) {
+      llmHeaders.Authorization = `Bearer ${env.LOCAL_LLM_API_KEY}`;
+    }
+    llmBody = {
+      model: modelName,
+      messages: llmMessages,
+      temperature: 0.7,
+      max_tokens: 2048,
+    };
   } else {
     return jsonResponse(env, 400, {
       error: "Configuration Error",
-      message: `Unsupported MODEL_PROVIDER specified: '${env.MODEL_PROVIDER}'. Must be 'workersai' or 'azureopenai'.`,
+      message: `Unsupported MODEL_PROVIDER specified: '${env.MODEL_PROVIDER}'. Must be 'workersai', 'azureopenai', or 'local'.`,
     });
   }
 
